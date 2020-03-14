@@ -1,0 +1,83 @@
+.center {
+  display: block;
+  margin-top: 5px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.forecast {
+  background: #323544;
+  color: white;
+  border-radius: 15px;
+  vertical-align: top; }
+.forecast.today {
+  width: 440px; }
+.error{
+  text-align: center;
+  width: 420px;
+}
+.forecast.today .forecast-header {
+  *zoom: 1; }
+
+.forecast.today .forecast-header:after {
+  content: " ";
+  clear: both;
+  display: block;
+  overflow: hidden;
+  height: 0; }
+.forecast.today .forecast-header .day {
+  float: left; }
+.forecast.today .forecast-header .date {
+  float: right; }
+.forecast.today .forecast-content {
+  text-align: left;
+  padding-top: 30px;
+  padding-bottom: 30px; }
+.forecast.today .location {
+  font-size: 18px;
+  font-size: 1.2857142857em;
+  font-weight: 400; }
+.forecast.today .degree .num, .forecast.today .degree .forecast-icon {
+  display: inline-block;
+  vertical-align: middle; }
+.forecast.today .degree .num {
+  font-size: 75px;
+  font-size: 4.6875rem;
+  margin-right: 30px;
+  margin-top: 40px;
+  margin-bottom: 40px; }
+.forecast.today span {
+  margin-right: 20px; }
+.forecast.today span img {
+  margin-right: 5px;
+  vertical-align: middle; }
+.forecast .forecast-header {
+  background: rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  text-align: center;
+  font-weight: 400; }
+.forecast .forecast-icon {
+  height: 50px; }
+.forecast .forecast-content {
+  padding: 50px 20px 10px;
+  text-align: center; }
+.forecast .forecast-content .forecast-icon {
+  margin-bottom: 20px;
+  font-size: 14px;
+  text-align: center;}
+.forecast .forecast-content .degree {
+  font-size: 24px;
+  font-size: 1.7142857143em;
+  font-weight: 700; }
+.forecast .forecast-content small {
+  font-size: 16px;
+  font-size: 1.1428571429em; }

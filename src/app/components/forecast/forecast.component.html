@@ -1,0 +1,43 @@
+<form class="form center">
+  <mat-form-field class="full-width">
+    <input matInput placeholder="Location/City" aria-label="string" [matAutocomplete]="auto" [formControl]="cityCtrl">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngIf="isLoading" class="is-loading">Loading...</mat-option>
+      <ng-container *ngIf="!isLoading">
+        <mat-option *ngFor="let city of cities" [value]="city.matching_full_name">
+          <span>{{city.matching_full_name}}</span>
+        </mat-option>
+      </ng-container>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>
+<button class="center" mat-raised-button (click)="onSubmit()" [disabled]="cityCtrl.invalid">
+  Get Weather
+  <mat-spinner *ngIf="isLoadingWeather" mode="indeterminate" diameter="14" style="display: inline-block;"></mat-spinner>
+</button>
+<br>
+<div *ngIf="error" class="alert alert-warning center error" role="alert">
+  {{ errorMsg }}
+</div>
+
+<div *ngIf="weatherLoaded" class="today forecast center">
+  <div class="forecast-header">
+    <div class="day">{{ currentDate | date: 'EEEE' }}</div>
+    <div class="date">{{ currentDate | date: 'MMM dd, yyyy' }}</div>
+  </div> <!-- .forecast-header -->
+  <div class="forecast-content">
+    <div class="location">{{ location }}</div>
+    <div class="degree">
+      <div class="num">{{ convertTemptoC(currentWeather.main.temp) }}<sup>o</sup>C</div>
+      <div class="forecast-icon">
+        <img width="90" alt="Weather Icon" src='{{ iconUrl }}'>
+        <br>
+        <span>{{ currentWeather.weather[0].description }} </span>
+      </div>
+    </div>
+    <span><img src="assets/icon-umberella.png" alt="">{{currentWeather.main.humidity}} %</span>
+    <span><img src="assets/icon-wind.png" alt="">{{ convertMpsoKmph(currentWeather.wind.speed) }} km/h</span>
+    <span><img src="assets/icon-compass.png" alt="">{{ convertWindDirection(currentWeather.wind.deg) }}</span>
+  </div>
+</div>
+
